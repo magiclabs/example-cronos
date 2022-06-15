@@ -1,7 +1,7 @@
 # Resources
 
 - [GitHub Repo](https://github.com/magiclabs/example-cronos)
-- [Demo](https://magic-cronos.vercel.app/login)
+- [Demo](https://vmgvtk.csb.app/)
 
 # Quick Start
 
@@ -25,7 +25,7 @@ With Magic, developers can connect to the Cronos network by simply specifying th
 
 ## Connecting to Cronos
 
-In `magic.js`, we will have a `magicCronos` and a `web3Cronos` instance.
+In `magic.js`, we will create a `magic` and a `web3` instance.
 
 ```js
 import { Magic } from "magic-sdk";
@@ -37,14 +37,11 @@ const customNodeOptions = {
 };
 
 // Setting network to Cronos Testnet
-export const magicCronos = new Magic(
-  process.env.REACT_APP_MAGIC_PUBLISHABLE_KEY,
-  {
-    network: customNodeOptions,
-  }
-);
+export const magic = new Magic(process.env.REACT_APP_MAGIC_PUBLISHABLE_KEY, {
+  network: customNodeOptions,
+});
 
-export const web3Cronos = new Web3(magicCronos.rpcProvider);
+export const web3 = new Web3(magic.rpcProvider);
 ```
 
 ## Viewing User Balance
@@ -73,7 +70,7 @@ To get the gas price, you can use `web3.eth.getGasPrice`.
 For the gas limit on Cronos testnet, we have hard-coded 50000.
 
 ```js
-const web3 = magic.network === "ethereum" ? web3Ethereum : web3Optimism;
+import { web3 } from "../magic";
 
 const sendTransaction = async () => {
   if (!toAddress || !amount) return;
