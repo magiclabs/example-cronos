@@ -1,8 +1,7 @@
 import React, { useState, useRef } from "react";
+import { web3 } from "../magic";
 
 export default function ContractCall({
-  web3,
-  network,
   publicAddress,
   fetchBalance,
   message,

@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
+import { web3 } from "../magic";
 
-export default function SendTransaction({ web3, publicAddress, fetchBalance }) {
+export default function SendTransaction({ publicAddress, fetchBalance }) {
   const [toAddress, setToAddress] = useState("");
   const [amount, setAmount] = useState("");
   const [disabled, setDisabled] = useState(false);

@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { useHistory } from "react-router";
-import { magicCronos } from "../magic";
+import { magic } from "../magic";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -15,7 +15,7 @@ export default function Login() {
     setIsLoggingIn(true);
 
     try {
-      await magicCronos.auth.loginWithMagicLink({
+      await magic.auth.loginWithMagicLink({
         email,
         redirectURI: new URL("/callback", window.location.origin).href,
       });
@@ -28,7 +28,7 @@ export default function Login() {
   /**
    * Saves the value of our email input into component state.
    */
-  const handleInputOnChange = useCallback(event => {
+  const handleInputOnChange = useCallback((event) => {
     setEmail(event.target.value);
   }, []);
 
@@ -43,8 +43,9 @@ export default function Login() {
         onChange={handleInputOnChange}
         disabled={isLoggingIn}
       />
-      <button onClick={login} disabled={isLoggingIn}>Send</button>
+      <button onClick={login} disabled={isLoggingIn}>
+        Send
+      </button>
     </div>
   );
 }
-

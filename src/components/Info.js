@@ -23,10 +23,10 @@ export default function Info({ user, magic, balance }) {
         <h1>Public Address</h1>
         <div className="info">{user.publicAddress}</div>
         <h1>Balance</h1>
-        <div className="info">{balance.toString().substring(0, 6)} CRO</div>
+        <div className="info">{balance.toString().substring(0, 6)} tCRO</div>
         <div>
           <a href="https://cronos.org/faucet" target="_blank">
-            Get Test CRO (TCRO) ↗️
+            Get Test CRO (tCRO) ↗️
           </a>
         </div>
       </div>

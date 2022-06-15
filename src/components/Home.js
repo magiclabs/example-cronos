@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
-import { magicCronos, web3Cronos } from "../magic";
+import { magic, web3 } from "../magic";
 import { abi } from "../contract/abi.js";
 import Loading from "./Loading";
 import ContractCall from "./ContractCall";
@@ -8,8 +8,6 @@ import SendTransaction from "./SendTransaction";
 import Info from "./Info";
 
 export default function Home() {
-  const [magic, setMagic] = useState(magicCronos);
-  const web3 = web3Cronos;
   const [userMetadata, setUserMetadata] = useState();
   const [balance, setBalance] = useState("...");
   const cronosContractAddress = "0x1b9772EaD2F0edA27E0185f8A18aeD3924d45643";

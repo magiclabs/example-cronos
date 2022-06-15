@@ -11,11 +11,8 @@ const customNodeOptions = {
 };
 
 // Setting network to Cronos Testnet
-export const magicCronos = new Magic(
-  process.env.REACT_APP_MAGIC_PUBLISHABLE_KEY,
-  {
-    network: customNodeOptions,
-  }
-);
+export const magic = new Magic(process.env.REACT_APP_MAGIC_PUBLISHABLE_KEY, {
+  network: customNodeOptions,
+});
 
-export const web3Cronos = new Web3(magicCronos.rpcProvider);
+export const web3 = new Web3(magic.rpcProvider);
